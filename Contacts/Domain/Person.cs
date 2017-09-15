@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Domain
 {
@@ -13,7 +14,7 @@ namespace Domain
         private string _lastName;
 
         private static int _id;
-        public  int PersonId { get; private set; }
+        public  int PersonId { get;}
 
         public Person()
         {
@@ -34,8 +35,8 @@ namespace Domain
         }
         public List<Contact> Contacts { get; set; } = new List<Contact>();
 
-        public string FirstLastName => $"{FirstName} {LastName}";
-        public string LastFirstName => $"{LastName} {FirstName} ";
+        public string FirstLastName => $"{FirstName} {LastName} {PersonId} ";
+        public string LastFirstName => $"{LastName} {FirstName} {PersonId} ";
 
         private static string ValidateNameString(string name, string fieldName)
         {
@@ -43,7 +44,8 @@ namespace Domain
             {
                 throw new ArgumentException($"{fieldName} is too short");
             }
-            return name[0].ToString().ToUpper().Length + name.ToLower().Substring(1);
+            //Console.WriteLine($"Name: {name}, Fieldname: {fieldName}, {_id}" ); //for debug
+            return Char.ToUpper(name[0]) + name.ToLower().Substring(1);
         }
 
         public override string ToString()

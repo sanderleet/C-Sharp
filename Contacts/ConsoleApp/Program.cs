@@ -54,7 +54,10 @@ namespace ConsoleApp
                             break;
                     }
                 } while (input.KeyChar != 'E' && input.KeyChar != 'X');
+                return;
             }
         }
+
+        
     }
 }
