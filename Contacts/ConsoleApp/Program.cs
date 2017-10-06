@@ -8,11 +8,11 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-           
+
             for (;;)
             {
                 var ctx = new Context();
-                ctx.Persons.Add(new Person(){FirstName = "Sander", LastName = "Valgo"});
+                ctx.Persons.Add(new Person() {FirstName = "Sander", LastName = "Valgo"});
                 ConsoleKeyInfo input;
                 do
                 {
@@ -57,7 +57,5 @@ namespace ConsoleApp
                 return;
             }
         }
-
-        
     }
 }

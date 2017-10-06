@@ -8,10 +8,15 @@ namespace Domain
 
         public int ContactId { get; set; }
 
-        public Contact()
+        public Contact(ContactType contactType, Person person)
+
         {
             _id++;
             ContactId = _id;
+            ContactType = contactType;
+            Person = person;
+            Person.Contacts.Add(this);
+
         }
         public string ContactValue { get; set; }
 
